@@ -44,6 +44,7 @@ promptUser()
 
     axios.get(response.data.repos_url)
       .then((res) => {
+        
         let starCount = 0;
         for(let i=0; i<res.data.length; i++) // find out the total number of github stars
         {
@@ -93,7 +94,14 @@ promptUser()
         console.log(err);
     });
 
-  });
+  })
+
+  .catch(function(err) {
+    //console.log(err);
+    console.log(err.response.status);
+    console.log("We have a problem! Please check the github username.");
+});
+  
 
 })
  .then(function() {
@@ -101,4 +109,5 @@ promptUser()
 })
  .catch(function(err) {
     console.log(err);
+    console.log(err.response.status);
 });
