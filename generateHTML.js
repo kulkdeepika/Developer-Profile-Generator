@@ -23,6 +23,13 @@ const colors = {
     headerBackground: "#870603",
     headerColor: "white",
     photoBorderColor: "white"
+  },
+  aqua: {
+    wrapperBackground: "tan",
+    headerBackground: "turquoise",
+    headerColor: "white",
+    photoBorderColor: "white"
+
   }
 };
 

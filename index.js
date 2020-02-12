@@ -25,7 +25,8 @@ function promptUser(){
         'green',
         'blue',
         'pink',
-        'red'
+        'red',
+        'aqua',
       ]
     }
   ]);
@@ -38,7 +39,7 @@ promptUser()
 
   axios.get(url)
     .then((response) => {
-
+      
       response.data.color = answers.favColor;// add the selected color as a property in the response object
 
     axios.get(response.data.repos_url)
