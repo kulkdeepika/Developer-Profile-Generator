@@ -55,7 +55,11 @@ promptUser()
 
           //check if location is provided
           if(response.data.location === null){
-            response.data.location = ""
+            response.data.location = "";
+            response.data.locIcon = "";
+          }
+          else{
+            response.data.locIcon = `<i class="fas fa-location-arrow"></i>` ;
           }
           // check if company is provided       
           if(response.data.company === null){

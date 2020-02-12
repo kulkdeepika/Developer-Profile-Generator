@@ -30,6 +30,5 @@ The link to github account and blog is also made available.
 
 - converted.PDF
 
-
 ## Environment
 You will need axios, electron-html-to and electron (v 5.0.3) npm packages.
