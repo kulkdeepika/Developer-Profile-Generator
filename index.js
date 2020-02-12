@@ -105,7 +105,7 @@ promptUser()
 
 })
  .then(function() {
-   console.log("Successfully wrote to index.html");
+   console.log("Success");
 })
  .catch(function(err) {
     console.log(err);

@@ -13,5 +13,23 @@ The link to github account and blog is also made available.
 
 `node index.js`
 
+##### Enter the github-Username when prompted with:
+
+`? What is the GitHub username?`
+
+##### Select the color using arrow keys
+
+`? Pick your favourite color: (Use arrow keys)
+> green
+  blue
+  pink
+  red
+  aqua`
+
+##### Find youe PDF in:
+
+`converted.PDF`
+
+
 ## Environment
 You will need axios, electron-html-to and electron (v 5.0.3) npm packages.
