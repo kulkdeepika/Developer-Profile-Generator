@@ -44,6 +44,7 @@ promptUser()
 
     axios.get(response.data.repos_url)
       .then((res) => {
+        
         let starCount = 0;
         for(let i=0; i<res.data.length; i++) // find out the total number of github stars
         {
@@ -54,7 +55,11 @@ promptUser()
 
           //check if location is provided
           if(response.data.location === null){
-            response.data.location = ""
+            response.data.location = "";
+            response.data.locIcon = "";
+          }
+          else{
+            response.data.locIcon = `<i class="fas fa-location-arrow"></i>` ;
           }
           // check if company is provided       
           if(response.data.company === null){
@@ -93,12 +98,20 @@ promptUser()
         console.log(err);
     });
 
-  });
+  })
+
+  .catch(function(err) {
+    //console.log(err);
+    console.log(err.response.status);
+    console.log("We have a problem! Please check the github username.");
+});
+  
 
 })
  .then(function() {
-   console.log("Successfully wrote to index.html");
+   console.log("Success");
 })
  .catch(function(err) {
     console.log(err);
+    console.log(err.response.status);
 });

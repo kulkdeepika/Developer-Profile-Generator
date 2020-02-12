@@ -9,5 +9,26 @@ The user is asked to enter the username of the person-of-interest's github profi
 If the github-user has provided location, it will display the location, and upon clicking, it opens the location in google maps.
 The link to github account and blog is also made available.
 
+#### Command to Run
+
+`node index.js`
+
+##### Enter the github-Username when prompted with:
+
+`? What is the GitHub username?`
+
+##### Select the color using arrow keys
+
+`? Pick your favourite color: (Use arrow keys)
+  green
+  blue
+  pink
+  red
+  aqua`
+
+##### Find your PDF in:
+
+- converted.PDF
+
 ## Environment
 You will need axios, electron-html-to and electron (v 5.0.3) npm packages.

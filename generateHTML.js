@@ -190,7 +190,7 @@ const generateHTML = function generateHTML(data) {
               <h2>My name is ${data.name}</h2>
               <h5>${data.company}</h5>
               <div class="links-nav">
-                  <h6 class="nav-link"><i class="fas fa-location-arrow"></i> <a href="https://www.google.com/maps/place/${data.location}" target="_blank" > ${data.location}</a></h6>
+                  <h6 class="nav-link">${data.locIcon}<a href="https://www.google.com/maps/place/${data.location}" target="_blank" > ${data.location}</a></h6>
                   <h6 class="nav-link"><i class="fab fa-github-alt"></i><a href="${data.html_url}" > Github</a></h6>
                   <h6 class="nav-link"><i class="fas fa-rss"></i><a href="${data.blog}" > Blog</a></h6>
               </div>
