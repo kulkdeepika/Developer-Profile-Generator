@@ -20,15 +20,15 @@ The link to github account and blog is also made available.
 ##### Select the color using arrow keys
 
 `? Pick your favourite color: (Use arrow keys)
-> green
+  green
   blue
   pink
   red
   aqua`
 
-##### Find youe PDF in:
+##### Find your PDF in:
 
-`converted.PDF`
+- converted.PDF
 
 
 ## Environment
