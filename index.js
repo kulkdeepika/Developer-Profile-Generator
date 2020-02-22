@@ -45,50 +45,51 @@ promptUser()
     axios.get(response.data.repos_url)
       .then((res) => {
         
+        // find out the total number of github stars
         let starCount = 0;
-        for(let i=0; i<res.data.length; i++) // find out the total number of github stars
-        {
-            starCount += res.data[i].stargazers_count;
-        }
-                    
-          response.data.NoOfStars = starCount; // add the total stars as a property in response object
+        const reducer = (acc, currVal) => acc + currVal.stargazers_count;
 
-          //check if location is provided
-          if(response.data.location === null){
+        let arr = res.data;
+        starCount = arr.reduce(reducer,0); 
+                    
+        response.data.NoOfStars = starCount; // add the total stars as a property in response object
+
+        //check if location is provided
+        if(response.data.location === null){
             response.data.location = "";
             response.data.locIcon = "";
-          }
-          else{
-            response.data.locIcon = `<i class="fas fa-location-arrow"></i>` ;
-          }
-          // check if company is provided       
-          if(response.data.company === null){
+        }
+        else{
+          response.data.locIcon = `<i class="fas fa-location-arrow"></i>` ;
+        }
+        // check if company is provided       
+        if(response.data.company === null){
             response.data.company = ""
-          }
-          else{
+        }
+        else{
             response.data.company = `Currently ${response.data.company}`;
-          }
-          //check if bio is provided
-          if(response.data.bio === null){
+        }
+        //check if bio is provided
+        if(response.data.bio === null){
             response.data.bio = ""
-          }
+        }
                     
-          //generate the html with the required data
-          const generatedHtml = genHTML.generateHTML(response.data);
+        //generate the html with the required data
+        const generatedHtml = genHTML.generateHTML(response.data);
 
-          //the code below converts the html to PDF
-          var conversion = convertFactory({
-            converterPath: convertFactory.converters.PDF
-          });
+        //the code below converts the html to PDF
+        var conversion = convertFactory({
+          converterPath: convertFactory.converters.PDF
+        });
   
-          conversion({ html: generatedHtml }, function(err, result) {
-            if (err) {
-                return console.error(err);
-            }
+        conversion({ html: generatedHtml }, function(err, result) {
+          if (err) {
+              return console.error(err);
+          }
 
-           console.log(result.logs);
-            result.stream.pipe(fs.createWriteStream('./converted.PDF'));
-            conversion.kill(); 
+          console.log(result.logs);
+          result.stream.pipe(fs.createWriteStream('./converted.PDF'));
+          conversion.kill(); 
       });
 
       //this writes to a html file; not necessary for the functionality
